@@ -1,0 +1,205 @@
+
+/* MODULE */
+#feedback-fixed {
+	top: 60% !important;
+}
+span.phone-number a {
+	color: #d5242f;
+	font-size: 21px;
+}
+
+
+
+
+
+.search-b-jobs {
+	max-width: 275px;
+}
+/* search box */
+
+.cf:before,
+.cf:after {
+	content: " ";
+	display: table;
+}
+.cf:after {
+	clear: both;
+}
+.cf {
+	zoom: 1;
+}
+.form-wrapper {
+	padding-bottom: 5px;
+}
+.txtZip {
+	float: left;
+}
+.within {
+	float: left;
+	padding: 10px 5px 0 10px;
+	margin-top: 5px;
+}
+.miles-within {
+	float: left;
+	margin-right: 7px;
+	margin-top: 13px;
+}
+#job_input_text.keyword,
+#tb-widget-search {
+	float: left;
+}
+#job_input_text.keyword {
+	margin-top: -10px;
+}
+#job_input_text.keyword,
+#txtZip.txtZip,
+#tb-widget-search {
+	width: 200px;
+	height: 10px;
+	padding: 10px 5px;
+	font-size: 12px;
+	background-color: #fff;
+	border-radius: 3px 0 0 3px;
+	color: #515151;
+	border: 1px solid #999;
+}
+#tb-widget-search {
+	height: 32px;
+}
+[data-tb-widget="search"] input {
+	margin-right: 0;
+}
+#job_input_text.keyword:focus,
+#txtZip.txtZip:focus {
+	background-color: #fff;
+}
+#txtZip.txtZip {
+	border-radius: 3px;
+	margin-top: 5px;
+}
+.form-wrapper input:focus {
+	outline: 0;
+	background-color: #fff;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .8) inset;
+}
+.form-wrapper input::-webkit-input-placeholder {
+	color: #515151;
+	font-weight: normal;
+	font-style: italic;
+}
+.form-wrapper input:-moz-placeholder {
+	color: #515151;
+	font-weight: normal;
+	font-style: italic;
+}
+input[type="checkbox"] {
+	border: 0;
+}
+.form-wrapper input:-ms-input-placeholder {
+	color: #999;
+	font-weight: normal;
+	font-style: italic;
+}
+.within,
+.miles-within,
+.miles {
+	font-style: italic;
+	color: #333;
+}
+
+/* -------------- */
+
+
+
+
+
+
+/*.avail-now {
+	width: 400px;
+	margin: 0 auto;
+	font-size: 21px;
+}*/
+
+
+
+
+/* Table */
+
+
+.videos {
+	clear: both;
+}
+.videos li,
+.sim-lab-videos li {
+	list-style: none;
+}
+
+ul.sim-lab-videos li {
+	float: left;
+	margin-left: 0;
+	list-style: none;
+}
+
+
+/*
+	bayada way
+*/
+
+.Bayada-U {
+	text-align: center;
+}
+/*.contest-logo {
+	float: left;
+}*/
+
+.medcom-h1 {
+	color: #d5242f;
+	font-size: 16px;
+	margin-bottom: 0;
+}
+/* aspire */
+
+.stories-list ul li {
+	list-style: none;
+	font-size: 16px;
+}
+
+.list-box {
+	overflow: hidden;
+}
+
+
+/* STATE */
+
+
+
+.cell:hover {
+    background-color: #515151;
+}
+
+span.phone-number a:hover {
+	text-decoration: none;
+}
+
+.sub-nav:hover,
+.second-nav:hover {
+	opacity: .80;
+}
+.sub-nav a:hover,
+.second-nav a:hover {
+	color: #d5242f;
+}
+
+.flexnav .touch-button:hover,
+.second-menu .touch-button:hover {
+	cursor: pointer;
+}
+
+.flexnav li ul li a:hover {
+		text-decoration: underline;
+	}
+
+	.footer-links li a:hover {
+    color: #d5242f;
+}
+/* THEME */

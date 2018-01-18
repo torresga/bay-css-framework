@@ -1,0 +1,859 @@
+@import "../core/variables";
+
+
+/* Panels */
+
+.c-panel--hospice {
+  @include fill-parent;
+background-color: $yellow--light;
+@include pad(15px);
+border: 2px solid $grey--dark;
+}
+
+.c-panel--hospice__list {
+  list-style-type: disc;
+}
+
+.c-panel--benefits {
+  position: relative;
+  @include pad(default);
+  border: 2px solid $grey--dark;
+  @include span-columns(10);
+  @include shift(1);
+  margin-bottom: 30px;
+  height: 450px;
+  @include media($tablet-max-breakpoint) {
+    @include shift(0.65);
+    @include span-columns(5);
+    @include omega(2n);
+  }
+
+  @include media($desktop) {
+    @include shift(0.25);
+    @include span-columns(11/3);
+    @include omega(3n);
+  }
+}
+
+.c-panel--benefits__inner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.c-panel--benefits__title {
+  font-weight: bold;
+  color: $white;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.c-panel--benefits__text {
+  color: $white;
+}
+.c-panel--benefits__link {
+  margin-top: 15px;
+  font-weight: bold;
+  color: $white;
+  display: block;
+}
+
+.c-panel-benefits__link--inline {
+  display: inline;
+}
+
+.c-panel-bio {
+  @include pad(default);
+  border: 2px solid $grey--medium;
+}
+
+.c-panel-bio__title {
+  font-weight: bold;
+  color: $red;
+  font-style: italic;
+  text-align: center;
+}
+
+.c-panel-bio__img {
+  display: block;
+  margin: 15px auto;
+}
+
+.c-panel-bio__list {
+  @include pad(default);
+  list-style-type: disc;
+}
+
+.c-panel--services {
+  position: relative;
+  @include span-columns(10);
+  @include shift(1);
+  margin-bottom: 15px;
+  margin-top: 15px;
+  @include media($tablet-max-breakpoint) {
+    @include shift(0.65);
+    @include span-columns(5);
+    @include omega(2n);
+
+  }
+
+  @include media($desktop) {
+    @include shift(0.25);
+    @include span-columns(11/3);
+    @include omega(3n);
+  }
+
+/* @include media(min-width 1400px) {
+@include shift(0.75);
+@include span-columns(3);
+@include omega(3n);
+margin-bottom: 100px;
+}*/
+
+&:hover {
+  background-color: $grey--dark;
+}
+&::after {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+}
+
+.c-panel--services__col {
+  &::after {
+    padding-top: 190%;
+  }
+}
+
+.c-panel--services__icon {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.c-panel--services__inner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.c-panel--services__title {
+  font-weight: bold;
+  text-align: center;
+  color: $white;
+  font-size: $warmth;
+}
+
+.c-panel--services__text {
+  color: $white;
+  text-align: center;
+  margin: 15px;
+}
+
+.c-panel--services__link {
+  display: block;
+  margin-top: 15px;
+  color: $white;
+  letter-spacing: 1.5px;
+  font-style: italic;
+  text-align: center;
+  @include media($tablet){
+    font-size: $charity;
+  }
+}
+
+
+.bayada-university-dkblue {
+  background-color: $blue--royal;
+}
+.bayada-university-dkpurp {
+  background-color: $purple--dark;
+}
+.bayada-university-dkgreen {
+  background-color: $blue--steel;
+}
+
+.l-row-wrapper--services {
+  @include row();
+  @include span-columns(10);
+  @include shift(1);
+}
+
+.c-panel--heading {
+  position: relative;
+  p {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: $warmth;
+    color: $white;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  &::after {
+    @include media($desktop) {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      margin-left: -30px;
+      border-top: 30px solid transparent;
+      border-left: 30px solid $periwinkle;
+      border-right: 30px solid $teal;
+      background-color: $grey--dark;
+    }
+    @include media(min-width 1400px) {
+      bottom: 35%;
+      left: 100%;
+      margin-left: 0;
+      border-left: 30px solid transparent;
+      border-right: none;
+      border-top: 30px solid $periwinkle;
+      border-bottom: 30px solid $periwinkle;
+    }
+  }
+}
+
+.c-panel--contact {
+  width: 100%;
+  height: 215px;
+  @include media($desktop) {
+    width: 50%;
+    float: left;
+  }
+  @include media(min-width 1400px) {
+    width: 37.5%;
+  }
+  img {
+    display: block;
+    width: 466px; 
+    margin: 0 auto; 
+  }
+}
+
+.c-panel--contact-text {
+  width: 100%;
+  height: 215px;
+  @include media(min-width 1400px) {
+    width: 25%;
+    float: left;
+  }
+}
+
+
+
+.purp {
+  background-color: $periwinkle;
+}
+.purp-bottom {
+  border-bottom: 10px solid $periwinkle;
+}
+.orng {
+  background-color: $orange;
+}
+.orng-bottom {
+  border-bottom: 10px solid $orange;
+}
+.teal {
+  background-color: $teal;
+}
+.teal-bottom {
+  border-bottom: 10px solid $teal;
+}
+.blue {
+  background-color: $blue;
+}
+.blue-bottom {
+  border-bottom: 10px solid $blue;
+}
+.blue-bottom,
+.purp-bottom,
+.orng-bottom,
+.teal-bottom {
+  border-right: 1px solid $grey--medium;
+  border-left: 1px solid $grey--medium;
+}
+.dkpurp {
+  background-color: $purple--dark;
+}
+.dkred {
+  background-color: $red;
+}
+.grey {
+  background-color: $grey--dark;
+}
+.purp span,
+.orng span,
+.teal span,
+.blue span,
+.dkpurp span,
+.dkred span,
+.grey span {
+  padding: 5px;
+}
+
+
+.c-panel-container--benefits-profile {
+  @include fill-parent();
+  /* @include row(table);*/
+}
+
+
+.c-panel--benefits-profile__inner {
+  min-height: 475px;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.c-panel--benefits-profile__img {
+  max-width: 80%;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  background: $white;
+}
+.c-panel--benefits-profile__title {
+  color: $white;
+  text-align: center;
+  padding: 10px;
+}
+.c-panel--benefits-profile__title--top {
+  border-bottom: 1px solid $white;
+  margin: 0 10px;
+  text-transform: uppercase;
+}
+
+.c-panel--benefits-profile {
+  @include media($tablet) {
+    @include shift(0);
+    @include span-columns(2);
+    @inlcude omega(4n);
+  }
+}
+
+.profile h2 {
+  border-bottom: 1px solid #fff;
+  margin: 0 10px;
+  text-transform: uppercase;
+}
+
+.profile q {
+  color: #fff;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  quotes: '"' '"' "'" "'";
+  font-size: 16px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.profile q:before { content: open-quote }
+.profile q:after  { content: close-quote }
+
+@media screen and (min-width: 570px) {
+  .ppl-container {
+    /* display: table;*/
+    display: inline-block;
+  }
+  .ppl {
+    width: 49.5%;
+    height: 50%;
+    vertical-align: top;
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 1020px) {
+  .ppl-container {
+    display: table;
+  }
+  .ppl {
+    width: 25%;
+    display: table-cell;
+  }
+
+}
+
+.profile {
+  height: 450px;
+}
+
+.personal h4 {
+  font-weight: bold;
+}
+
+
+
+.benefits-accordion {
+  margin: 0;
+  padding: 15px;
+}
+
+.benefits-accordion--header {
+  font-size: 18px !important;
+}
+
+
+.benefits-anchor:before {
+  display: block;
+  content: " ";
+  margin-top: -258px;
+  height: 258px;
+  visibility: hidden;
+}
+
+.benefits-header {
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: 570px) {
+  .goals,
+  .personal {
+    min-height: 160px;
+  }
+  .ppl-container {
+    display: table;
+  }
+  .ppl {
+    width: 50%;
+    height: 50%;
+    vertical-align: top;
+    display: inline-block;
+  }
+}
+
+.personal {
+  margin-top: 20px;
+}
+.personal h4 {
+  font-weight: bold;
+}
+
+/*.c-panel--testimonial-3-col {
+position: relative;
+display: block;
+@include span-columns(10);
+@include shift(1);
+margin-bottom: 30px;
+
+@include media($tablet-max-breakpoint) {
+@include shift(0.65);
+@include span-columns(5);
+@include omega(2n);
+}
+
+@include media($desktop) {
+@include shift(0.25);
+@include span-columns(11/3);
+@include omega(3n);
+}
+
+&::after {
+content: '';
+width: 0;
+height: 0;
+position: absolute;
+bottom: 64px;
+right: 15%;
+border-top: 30px solid transparent;
+border-left: 30px solid $grey--light;
+border-right: 30px solid $grey--light;
+background-color: $white;
+@include media(min-width 600px) {
+bottom: 48px;
+}
+@include media(min-width 1400px) {
+bottom: 24px;
+}
+}
+}*/
+
+/*.c-panel--testimonial-2-col {
+position: relative;
+@include media($desktop) {
+@include shift(0.35);
+@include span-columns(11/3 of 8);
+}
+&::after {
+content: '';
+width: 0;
+height: 0;
+position: absolute;
+bottom: 64px;
+right: 15%;
+border-top: 30px solid transparent;
+border-left: 30px solid $grey--light;
+border-right: 30px solid $grey--light;
+background-color: $white;
+@include media(min-width 600px) {
+bottom: 48px;
+}
+@include media(min-width 1400px) {
+bottom: 24px;
+}
+}
+}*/
+
+.l-row-center {
+  @include span-columns(8);
+  @include shift(2);
+}
+.c-panel--testimonial__avatar {
+  margin-top: -35px;
+  margin-left: 20px;
+  @include media(min-width 600px) {
+    margin-top: -50px;
+  }
+  @include media(min-width 1400px) {
+    margin-top: -75px;
+  }
+}
+
+.c-panel--testimonial__avatar-img {
+  display: inline-block;
+  height: 115px;
+  width: 115px;
+  border: 2px solid $grey--light;
+  border-radius: 100%;
+  margin: 2.5px;
+}
+
+
+.c-panel--testimonial__inner {
+  background-color: $white;
+  padding: 7.5%;
+  border-radius: 5px;
+
+  @include media(min-width 600px) {
+    height: 520px;
+  }
+
+  @include media(min-width 1020px) {
+    height: 475px;
+  }
+}
+
+.c-panel--testimonial--name {
+  font-size: 16px;
+}
+
+.c-panel--testimonial-full {
+  position: relative;
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 60px;
+    right: 57px;
+    border: 20px solid;
+    border-color: $white transparent transparent $white;
+    @include media($desktop) {
+      bottom: 40px;
+    }
+  }
+  &::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 50px;
+    right: 51px;
+    border: 25px solid;
+    border-color: $grey--light transparent transparent $grey--light;
+    @include media($desktop) {
+      bottom: 30px;
+    }
+  }
+}
+
+.c-panel--testimonial-full__avatar {
+  margin-top: -30px;
+  margin-left: 20px;
+
+  @include media($desktop) {
+    margin-top: -50px;
+  }
+}
+
+.c-panel--testimonial-full__avatar-img {
+  display: inline-block;
+  height: 115px;
+  width: 115px;
+  border: 2px solid $grey--light;
+  border-radius: 100%;
+  margin: 2.5px;
+}
+
+
+.c-panel--testimonial-full--inner {
+  background-color: $white;
+  border: 2px solid $grey--light;
+  padding: 7.5%;
+  border-radius: 5px;
+}
+
+.c-panel--community {
+  @include fill-parent();
+  @include pad(15px);
+
+  @include media($tablet) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+}
+
+.c-panel--community__inner {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.c-panel--community__title {
+  text-align: center;
+}
+
+.c-panel--community__img {
+  text-align: center
+}
+
+.c-panel--community__text {
+  display: block;
+  text-align: center;
+}
+
+.c-panel--community__link {
+  text-decoration: none;
+}
+
+.c-panel--bayada-numbers {
+  @include fill-parent();
+  @include pad(15px);
+}
+
+
+.c-panel--bayada-numbers__inner {
+  border-bottom: 1px solid $grey--medium;
+  color: $grey--dark;
+  padding-bottom: 5px;
+  list-style-type: none;
+}
+
+.c-panel--bayada-numbers__title {
+  text-transform: uppercase;
+}
+
+.c-panel--bayada-numbers__number {
+  word-wrap: break-word;
+  color: $red;
+  font-size: $bravery;
+  display: block;
+  position: relative;
+  padding: 10px 0 5px;
+}
+
+
+/*
+HOW TO PAY
+*/
+.how-to-pay {
+  h3 {
+    margin: 0;
+    text-align: center;
+    img {
+      vertical-align: middle;
+    }
+  }
+
+  .highlight {
+    font-weight: bold;
+  }
+}
+
+#paymentoptions, #services {
+  p {
+    padding: 0 2.5% 2% 2.5%;
+  }
+}
+
+#privatepay {
+  p {
+    text-align: center;
+  }
+}
+
+#personalcare, #adultnursing, #homehealthcare {
+  background-color: $grey--light;
+  border-radius: 5px;
+  padding: 0.5%;
+  margin: 1%;
+  cursor: pointer;
+}
+
+#privatepay, #medicare, #workerscomp, #medicaid, #healthinsurance, #veteransbenefits, #longtermcare {
+  border-radius: 10px;
+  margin: 0.5%;
+  width: 100%;
+}
+
+#privatepay, #medicare, #workerscomp, #medicaid, #healthinsurance, #veteransbenefits, #longtermcare {
+  border: 2px solid $grey--light;
+}
+
+#showall, .resources, .button {
+  margin-top: 2%;
+  button, .button {
+    background: $red;
+    color: $white;
+    border-radius: 2px;
+    border: none;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.resources button a, .button a {
+  color: $white;
+}
+
+.resources a:hover {
+  text-decoration: none;
+}
+
+
+.bayada-submit {
+  background: $red;
+  color: $white;
+  border-radius: 2px;
+  border: none;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+
+#showall {
+  text-align: center;
+  margin-right: 5%;
+}
+.content:before {
+  content: "";
+  vertical-align: middle;
+  height: 100%;
+}
+
+.content {
+  vertical-align: middle;
+}
+
+@media (min-width: 700px) {
+
+  #services {
+    float: left;
+    width: 37%;
+  }
+
+  #paymentoptions {
+    width: 60%;
+    float: left;
+    margin: 0 auto 20px;
+  }
+
+  #help {
+    clear: left;
+  }
+
+  #personalcare, #adultnursing, #homehealthcare {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  #privatepay, #medicare, #workerscomp, #medicaid, #healthinsurance, #veteransbenefits, #longtermcare {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+@media (min-width: 900px) {
+  #services {
+    width: 20%;
+  }
+  #paymentoptions {
+    width: 80%;
+  }
+  #privatepay {
+    width: 97%;
+  }
+
+  #medicare, #workerscomp, #medicaid, #healthinsurance, #veteransbenefits, #longtermcare {
+    width: 48%;
+  }
+}
+
+//@media (min-width: 1030px){
+  //  #privatepay, #medicare, #workerscomp, #medicaid, #healthinsurance, #veteransbenefits, #longtermcare {
+    //    max-width: 31%;
+    //  }
+    //}
+
+
+/*
+  Client Care Stories
+*/
+.client-care-stories {
+  margin: 0 auto;
+  padding-left: 0;
+  li {
+    list-style: none;
+    display: inline-block;
+    box-shadow: 0 1px 3px rgba(34,25,25,.4);
+    margin: 5px;
+    a {
+      .story-title {
+        color: $grey--medium;
+        font-family: 'frutiger-bold', Arial, "Helvetica Neue", Helvetica, sans-serif;
+        padding: 5px;
+        display: block;
+        font-size: 18px;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+.story-practice-name {
+  color: #fff;
+  display: block;
+  height: 65px;
+  img {
+    padding: 10px 0;
+    vertical-align: middle;
+  }
+}
+
+.story-pd {
+  background: $teal;
+}
+
+.story-hh {
+  background: $purple--dark;
+}
+
+.story-pc {
+  background: $orange;
+}
+
+.c-panel--ps {display: inline-block; vertical-align: top; padding: 5px; border: 1px solid #ccc; margin: 20px 10px;}
+
+.c-panel--ps__title {
+  font-weight: bold;
+  color: $grey--dark;
+}

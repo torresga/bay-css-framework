@@ -1,0 +1,78 @@
+// Font Families
+$font-family--base: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+$font-family--secondary: 'frutiger-light', Arial, "Helvetica Neue", Helvetica, sans-serif;
+$font-family--tertiary: 'bembo-italic', 'Times New Roman', serif;
+
+// Font Sizes
+$beauty: 12px;
+$patience: 18px;
+$honor: 23px;
+$charity: 24px;
+$warmth: 30px;
+$kindness: 36px;
+$bravery: 39px;
+
+// Line height
+$line-height--base: 155%;
+$line-height--list: 175%;
+$line-height--heading: 133%;
+
+// Letter spacing
+$letter-spacing--base: .01em;
+$letter-spacing--korea: 4px;
+
+/*Color names fall within BEM style naming conventions*/
+
+$red: #d5242f;
+
+$orange: #c95300;
+
+$yellow--light: #fff7dc;
+
+$teal: #008580;
+
+$green: #207c46;
+
+$blue: #2479bf;
+
+$blue--royal: #0f4f9f;
+
+$blue--steel: #0c5e7c;
+
+$blue--midnight: #07102f;
+
+$periwinkle: #5e6dce;
+
+$jazzberry-jam: #9f0f6a;
+
+$purple--dark: #794083;
+
+$grey--light: #ebebeb;
+
+$grey--medium: #cccccc;
+
+$grey--dark: #333333;
+
+$white: #ffffff;
+
+
+$color-base--text: $grey--dark;
+$color-base--link: $red;
+
+
+
+/* Practice Styles */
+/* --------------- */
+$color--hhc: $blue;
+$color--pediatrics: $orange;
+$color--hospice: $purple--dark;
+$color--habilitation: $teal;
+$color--staffing: $periwinkle;
+$color--primarycare: $red;
+$color--india: $green;
+
+
+
+$color--education-connection: $blue--royal;
+$color--medcom: $purple--dark;
+$color--learning-management: $blue--steel;

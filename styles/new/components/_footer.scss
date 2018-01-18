@@ -1,0 +1,85 @@
+/* Footer */
+@import "../lib/bourbon/bourbon";
+@import "../lib/neat/neat";
+@import "../core/grid-settings";
+
+.l-footer::before,
+.l-footer--white::before {
+    background-color: $grey--light;
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.l-footer--white::before {
+    background-color: $white;
+}
+
+.l-footer {
+    position: relative;
+}
+
+.l-footer-container {
+    @include outer-container;
+}
+
+.l-footer__inner {
+    @include media($mobile-max-breakpoint) {
+        @include span-columns(6);
+        @include omega(2n);
+    }
+    
+  @include media($tablet) {
+    @include span-columns(3);
+    @include omega(4n);
+  }
+
+  &:not(:nth-child(4n+1)) {
+    @include media($tablet) {
+        border-left: 1px solid $grey--medium;
+    }
+  }
+}
+
+.l-footer__links {
+    font-size: $patience;
+    list-style-type: none;
+    margin: 15px;
+}
+
+.l-footer__title {
+    font-size: $honor;
+}
+
+.l-footer__link {
+    text-decoration: none;
+    color: $grey--dark;
+}
+
+.l-footer__links--social {
+    margin: 0;
+}
+
+.l-footer__links--social__link {
+    display: inline;
+}
+
+.l-footer-subfooter {
+    @include span-columns(12);
+}
+
+.l-footer-subfooter__chap-logo {
+    margin: 15px;
+}
+
+.l-footer-subfooter__chap-text {
+    font-size: $beauty;
+}
+
+.l-footer-subfooter__copyright {
+    font-size: $beauty;
+}
+
+/* -------------- */

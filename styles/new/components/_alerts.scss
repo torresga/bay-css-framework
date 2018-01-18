@@ -1,0 +1,14 @@
+.c-panel--alert {
+  @include fill-parent;
+  @include pad(default);
+  border: 2px solid $red;
+}
+
+.c-panel--alert__title {
+  font-weight: bold;
+  color: $red;
+}
+
+.c-panel--alert__text {
+  color: $grey--dark;
+}

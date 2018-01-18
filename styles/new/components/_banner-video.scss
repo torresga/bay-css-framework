@@ -1,0 +1,107 @@
+
+	/* Video */
+
+.c-banner--video {
+	display: block;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    min-height: 364px;
+	@include media($desktop) {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		min-height: 600px;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.c-banner--video-index {
+	background-image: url(../../cp-img/video/mobile/Video-Mark-1020x366.jpg);
+	@include media($desktop) {
+		background-image: url(../../cp-img/video/Video-Mark-1400x500.jpg);
+	}
+}
+
+.c-banner--video-lasting-legacy {
+	background-image: url(../../img/Video-mobile.jpg);
+	@include media($desktop) {
+		background-image: url(../../img/lasting-legacy-video-1400x500.jpg);
+	}
+}
+
+.c-banner--video-habilitation {
+	@include background__image($mobile: "../../img/careers/video/mobile/Video-Hab-REACH-Higher-1020x366.jpg",
+							  $desk: "../../img/careers/video/Video-Hab-REACH-Higher-1400x500.jpg");
+}
+
+.c-banner--video-compliance {
+	background-image: url(../../img/compliance/video-mark-honesty.jpg);
+}
+
+.c-banner--video-adult-sim-video {
+  	@include background__image($mobile: "/cp-img/video/mobile/Video-Adult-Clinical-Sim-Lab-1020x366.jpg",
+							  $desk: "../../cp-img/video/Video-Adult-Clinical-Sim-Lab-1400x500.jpg");
+  }
+
+  .c-banner--video-eric-video {
+  	@include background__image($mobile: "/cp-img/video/mobile/Video-Eric-LeGrand-1020x366.jpg",
+							  $desk: "../../cp-img/video/Video-Eric-LeGrand.jpg");
+  }
+
+  .c-banner--video-tbw {
+  	@include background__image($mobile: "/cp-img/video/mobile/Video-TBW-1020x366.jpg",
+							  $desk: "../../cp-img/video/Video-TBW.jpg");
+  }
+
+
+/*.c-banner__overlay--video-text {
+	@include media($desktop) {
+		display: block;
+		background-color: $red;
+		opacity: 0.95;
+		float: left;
+		width: 55%;
+		margin-top: 35%;
+		position: absolute;
+		bottom: 10px;
+	}
+}
+.c-text-overlay {
+	
+}
+
+.c-text-overlay p {
+	@include media($desktop) {
+		color: $white;
+		width: 75%;
+		margin: 0 auto;
+		line-height: 3rem;
+		padding-top: 10px;
+	}
+
+}
+*/
+.c-banner__overlay--video-text {
+	display: none;
+	@include media($desktop) {
+		color: $white;
+		font-size: 28px;
+		text-align: center;
+		display: block;
+		width: 100%;
+		line-height: 1.333em;
+		padding: 100px 40px 0;
+		min-height: 600px;
+		text-decoration: none;
+	}
+}
+
+/*a.various.fancybox.iframe.video-full {
+	@include media($desktop) {
+		color: #fff;
+	}
+	}
+*/

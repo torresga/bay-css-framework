@@ -1,0 +1,76 @@
+ul, ol {
+	margin: 15px 45px;
+}
+
+ul li {
+	line-height: $line-height--list;
+}
+
+li { 
+	list-style-type: disc;
+ }
+
+/* Hawaii board of directors */
+
+.c-list--about {
+  /*@include grid-container;*/
+  @include row;
+}
+
+.c-list--about__headshot {
+  /*@include grid-column(3);*/
+  @include fill-parent();
+  @include pad(15px);
+
+  @include media($tablet) {
+    @include span-columns(3);
+    @include omega(2n);
+  }
+}
+
+.c-list--about__headshot-img {
+  display: block;
+  margin: 0 auto;
+} 
+
+.c-list--about__text {
+  @include fill-parent();
+  @include pad(15px);
+  /*@include grid-column(3);*/
+  @include media($tablet) {
+    @include span-columns(9);
+    @include omega;
+  }
+}
+
+.c-list--careers {
+  @include row;
+}
+
+.c-list--careers__inner {
+  @include fill-parent();
+  @include pad(15px);
+  overflow: hidden;
+  border-bottom: 2px solid $grey--dark;
+}
+
+.c-list--careers__title {
+  /*@include grid-column(3);*/
+  @include fill-parent();
+
+  @include media($tablet) {
+    @include span-columns(8);
+  }
+}
+
+.c-list--careers__text {
+  text-align: center;
+  @include fill-parent();
+  @include pad(15px);
+  /*@include grid-column(3);*/
+  @include media($tablet) {
+    text-align: right;
+    @include span-columns(4);
+    @include omega;
+  }
+}

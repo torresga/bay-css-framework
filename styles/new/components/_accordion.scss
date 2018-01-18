@@ -1,0 +1,461 @@
+/* Accordion */
+
+/*.careers-section-menu li.selected > a,
+#accordion-nav li > div.selected > a,
+#accordion-nav li ul li.selected a {
+	color: $red;
+	font-weight: bold;
+}
+.careers-section-menu li ul {
+	padding-left: 10px;
+}
+#accordion-nav {
+	list-style: none;
+	padding: 0 0 0 0;
+}
+#accordion-nav div {
+	display: block;
+	margin: 1px;
+	cursor: pointer;
+}
+#accordion-nav ul {
+	list-style: none;
+	padding: 0 0 0 0;
+}
+#accordion-nav ul {
+	display: none;
+}
+#accordion-nav ul li {
+	font-weight: normal;
+	cursor: auto;
+	background-color: $white;
+	padding: 0 0 0 7px;
+}
+#accordion-nav a {
+	text-decoration: none;
+}
+#accordion-nav a:hover {
+	text-decoration: underline;
+}
+*/
+
+#accordion {
+	margin: 15px;
+}
+/*
+	zozo accordion
+*/
+/**************************************************************************
+*   @name           Zozo UI Accordion
+*   @description     Create awesome accordion
+*   @version        4.0
+*   @requires       jQuery v1.7 or later
+*   @copyright      Copyright (c) 2013 Zozo UI
+*   @author         Zozo UI
+*   @URL:           http://www.zozoui.com
+**************************************************************************/
+/* Global Reset */
+/* cross browser compatibility html5 tags */
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
+	display: block;
+}
+/*reset*/
+
+.z-accordion,
+.z-accordion > section,
+.z-accordion > section > h3,
+.z-accordion > section > h3 > .z-title,
+.z-accordion > section > h3 > .z-arrow,
+.z-accordion > section > .z-content {
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	padding: 0;
+	margin: 0;
+}
+/* Vertical Structure */
+
+.z-accordion.vertical {
+	font-size: 16px;
+	color: $color-base--text;
+}
+.z-accordion.vertical > section > h3 {
+	color: $red;
+	font-size: 16px;
+	font-weight: normal;
+	padding: 0 12px;
+	margin: 0;
+	display: block;
+	position: relative;
+	outline: none;
+	cursor: pointer;
+	text-decoration: none;
+}
+.z-accordion > section > h3.z-focus {
+	z-index: 9999 !important;
+}
+.z-accordion.z-focus,
+.z-accordion.vertical > section > h3.z-focus,
+.z-accordion.horizontal > section > h3.z-focus .z-title {
+	font-weight: bold !important;
+	color: $red;
+	background-color: $white !important;
+	border-bottom: 2px solid red !important;
+}
+.z-accordion.vertical > section > h3 > .z-arrow {
+	position: absolute;
+	opacity: 0.25;
+	right: 14px;
+	background: url(../../images/zozo-accordion.png) no-repeat 0 0;
+	width: 12px;
+	height: 12px;
+	top: 50%;
+	margin-top: -6px;
+}
+.z-accordion.vertical > section > h3 > .z-arrow.z-loading {
+	background-image: url('../../images/loading.gif');
+	height: 16px;
+	width: 16px;
+	margin-top: -8px;
+}
+.z-accordion.vertical > section > h3:hover > .z-arrow {
+	opacity: 1;
+}
+.z-accordion.vertical > section.z-active > h3 {
+	font-weight: bold;
+}
+.z-accordion.vertical > section.z-active > h3 > .z-arrow,
+.z-accordion.vertical > section > h3:hover > .z-arrow {
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	transform: rotate(90deg);
+	right: 14px;
+	opacity: 1;
+}
+.z-accordion.vertical > section > .z-content {
+	display: none;
+	background-color: $white;
+}
+.z-accordion.transition.vertical > section > .z-content {
+	height: 0;
+	overflow: hidden;
+	display: block!important;
+}
+.z-accordion.transition.vertical.z-grouped.z-bordered > section > .z-content,
+.z-accordion.transition.vertical.z-ungrouped.z-bordered > section > .z-content {
+	border-bottom-width: 0;
+}
+.z-accordion.transition.vertical > section> .z-content > .z-auto-g {
+	/*padding: 20px 15px 10px 15px;*/
+	padding: 15px;
+}
+.z-slider-wrapper > .z-accordion.transition.vertical > section> .z-content > .z-auto-g {
+	padding: 0;
+	/*version 4.0*/
+}
+.z-accordion.transition.vertical.z-grouped.z-bordered > section.z-active > .z-content,
+.z-accordion.transition.vertical.z-ungrouped.z-bordered > section.z-active > .z-content {
+	border-bottom-width: 2px;
+}
+/* Scrolling */
+
+.z-accordion.z-scrollable > section.z-active .z-content::-webkit-scrollbar {
+	width: 9px;
+	height: 9px;
+}
+.z-accordion.z-scrollable > section.z-active .z-content::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2);
+	border: thin solid rgba(0, 0, 0, 0.1);
+}
+.z-accordion.z-scrollable > section.z-active .z-content::-webkit-scrollbar-track {
+	background-color: rgba(0, 0, 0, 0.05);
+	border: thin solid rgba(0, 0, 0, 0.06);
+	box-shadow: 0 0 3px rgba(0, 0, 0, .1) inset;
+}
+.z-accordion.horizontal.z-scrollable > section.z-active > .z-content:hover,
+.z-accordion.horizontal.z-scrollable > section.z-active > .z-content > div:hover,
+.z-accordion.vertical.z-scrollable > section.z-active > .z-content:hover {
+	overflow: auto;
+}
+.z-accordion.z-scrollable > section.z-active > .z-content,
+.z-accordion.z-scrollable > section.z-active > .z-content > div {
+	overflow: hidden;
+}
+/* Shadows */
+/* Bordered */
+
+.z-accordion,
+.z-accordion > section,
+.z-accordion > section > h3,
+.z-accordion > section > h3 .z-title,
+.z-accordion > section > .z-content {
+	border-width: 0;
+	border-style: solid;
+	border-color: $grey--medium;
+}
+/*vertical*/
+/*grouped*/
+
+.z-accordion.vertical.z-grouped.z-bordered > section > h3 {
+	border-width: 1px;
+	border-radius: 5px;
+	/*margin-top: -1px;*/
+}
+.z-accordion.vertical.z-grouped.z-bordered > .z-first > h3 {
+	border-top-width: 2px;
+}
+.z-accordion.vertical.z-grouped.z-bordered > .z-last > h3 {
+	border-bottom-width: 2px;
+}
+.z-accordion.vertical.z-grouped.z-bordered > section > .z-content {
+	border-left-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 1px;
+	border-radius: 5px;
+}
+/*ungrouped*/
+
+.z-accordion.vertical.z-ungrouped > section {
+	margin: 5px 0;
+}
+.z-accordion.vertical.z-ungrouped.z-bordered > section > h3 {
+	border-width: 2px;
+}
+.z-accordion.vertical.z-ungrouped.z-bordered > section > .z-content {
+	border-left-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+}
+/* crystal */
+
+/*.z-accordion.crystal.z-bordered,
+.z-accordion.crystal.z-bordered > section > h3,
+.z-accordion.crystal.z-bordered > section > h3 > .z-title,
+.z-accordion.crystal.z-bordered > section > .z-content {
+	border-color: #999;
+}
+.z-accordion.crystal.vertical > section > h3,
+.z-accordion.crystal.horizontal > section > h3 > .z-title {
+	color: #d5242f;
+	background-color: #fff;
+	font-size: 16px;
+	height: auto !important;
+	line-height: 22px !important;
+	padding: 10px 20px 10px 10px;
+}
+.ie7 .z-accordion.crystal.horizontal > section > h3 .z-arrow,
+.ie8 .z-accordion.crystal.horizontal > section > h3 .z-arrow,
+.ie7 .z-accordion.crystal.horizontal > section > h3 > .z-title,
+.ie8 .z-accordion.crystal.horizontal > section > h3 > .z-title {
+	filter: none;
+	background-color: #ebebeb;
+}*/
+/* Browser Fixes */
+
+.ie7 .z-accordion.horizontal > section > h3 > .z-title,
+.ie7 .z-accordion.vertical > section > h3,
+.ie8 .z-accordion.horizontal > section > h3 > .z-title,
+.ie8 .z-accordion.vertical > section > h3 {
+	zoom: 1;
+	/*For IE7-8*/
+}
+.ie7 .z-accordion.horizontal.z-bordered > section > div,
+.ie8 .z-accordion.horizontal.z-bordered > section > div {
+	border-left-width: 2px;
+}
+.ie7 .z-accordion.horizontal > section > h3 {
+	/*-ms-filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=3);*/
+}
+.ie8 .z-accordion.horizontal > section > h3 {
+	filter: none;
+	/*-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";*/
+	-ms-transform: none;
+}
+.ie9 .z-accordion.horizontal > section > h3 {
+	filter: none;
+	-ms-filter: none;
+	-ms-transform: translateX(-100%) rotate(-90deg);
+	-ms-transform-origin: right top;
+}
+.ie .z-accordion.horizontal > section > h3 {
+	height: 50px;
+}
+.ie .z-accordion.horizontal > section > h3 > .z-title {
+	height: 48px;
+}
+/* IE fixes for themes*/
+
+.ie .z-accordion.vertical > section > h3 {
+	height: 1%;
+}
+/*For IE7*/
+
+.ie8 .z-accordion.horizontal {
+	padding-right: 1px;
+}
+/*For IE8*/
+/*grouped*/
+
+.z-accordion.z-grouped.z-rounded {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.z-accordion.z-grouped.z-rounded > section:last-child .z-content {
+	/*-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;*/
+	border-radius: 5px;
+}
+.z-accordion.z-grouped.z-rounded > section.z-active:last-child,
+.z-accordion.z-grouped.z-rounded > section.z-active:last-child h3 {
+	/*-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;*/
+	border-radius: 5px;
+}
+/* horizontal*/
+
+.z-accordion.horizontal.z-rounded {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.z-accordion.horizontal.z-rounded section.z-active:last-child .z-content {
+	/*border-radius: 0 5px 5px 0;*/
+	border-radius: 5px;
+}
+.z-accordion.horizontal.z-rounded > section:first-child > h3,
+.z-accordion.horizontal.z-rounded > section:first-child h3 > .z-title {
+	/*-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;*/
+	border-radius: 5px;
+}
+.z-accordion.horizontal.z-rounded > section:last-child > h3,
+.z-accordion.horizontal.z-rounded > section:last-child .z-title {
+	/*-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;*/
+	border-radius: 5px;
+}
+.z-accordion.horizontal.z-rounded > section.z-active:last-child > h3,
+.z-accordion.horizontal.z-rounded > section.z-active:last-child > h3 > .z-title {
+	/*-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;*/
+	border-radius: 5px;
+}
+/* Icons */
+
+.z-accordion.black > section > h3 > .z-arrow {
+	background-position: 0 -62px;
+}
+/* Mobile Fixes */
+
+.z-accordion,
+.z-accordion *,
+.z-accordion > section,
+.z-accordion > section > h3,
+.z-accordion > section > h3 > .z-title,
+.z-accordion > section > h3 > .z-arrow,
+.z-accordion > section > .z-content {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-touch-callout: none;
+	outline: none;
+}
+.z-accordion.z-mobile,
+.z-accordion.z-mobile > section,
+.z-accordion.z-mobile > section > h3,
+.z-accordion.z-mobile > section > h3 > .z-title,
+.z-accordion.z-mobile > section > h3 > .z-arrow,
+.z-accordion.z-mobile > section > .z-content {
+	box-shadow: none !important;
+	text-shadow: none !important;
+}
+/* Navigation Accordion */
+
+.z-accordion.z-content-nav.vertical > section> .z-content > .z-auto-g {
+	padding: 0;
+}
+.z-accordion.z-content-nav,
+.z-accordion.z-content-nav > section > .z-content {
+	background: none;
+}
+.z-accordion > section > h3 {
+	font-size: 16px;
+}
+.z-accordion > section > h3 a {
+	color: $white;
+}
+/*.z-accordion.crystal > section > h3 a {
+	color: #515151;
+}*/
+.z-accordion > section > .z-content {
+	padding: 0 0;
+	background: none;
+}
+.z-accordion .z-sub-nav li a:hover {
+	background-color: #399FF3 /*blue */;
+}
+.z-accordion .z-sub-nav li a {
+	text-decoration: none;
+	padding: 12px 0 12px 20px;
+	color: #fff;
+	display: block;
+	background-color: #2a7bbd /* another blue */;
+	-webkit-transition: all 300ms linear;
+	-moz-transition: all 300ms linear;
+	-o-transition: all 300ms linear;
+	-ms-transition: all 300ms linear;
+	transition: all 300ms linear;
+	box-shadow: 2px 4px 100px rgba(100, 100, 100, 0.05) inset;
+}
+.z-accordion > section > h3 a {
+	text-decoration: none;
+}
+/*.z-accordion.silver .z-sub-nav li a {
+	background-color: #fff;
+	color: #515151;
+}*/
+/*.z-accordion.silver .z-sub-nav li a:hover {
+	background-color: #ebebeb;
+}*/
+/*.z-accordion.crystal .z-sub-nav li a {
+	background-color: #ebebeb;
+	color: #515151;
+}*/
+/*.z-accordion.crystal .z-sub-nav li a:hover {
+	background-color: #ebebeb;
+}*/
+/*shadows*/
+
+.z-accordion.z-content-nav.vertical.z-ungrouped.z-shadows > section {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	box-shadow: 0 2px 3px rgba(111, 111, 111, .25);
+	box-shadow: none;
+}
+.z-accordion.z-content-nav.vertical.z-shadows .z-sub-nav li a {
+	box-shadow: 0 2px 3px rgba(111, 111, 111, .25), 2px 4px 100px rgba(100, 100, 100, 0.05) inset;
+}
+.z-accordion.z-content-nav.z-ungrouped.z-shadows > section > h3 {
+	box-shadow: 0 2px 3px rgba(111, 111, 111, .25);
+}
+/*rounded*/
+
+.z-accordion.z-content-nav.z-ungrouped.z-rounded > section > h3,
+.z-accordion.z-content-nav.z-ungrouped.z-rounded .z-sub-nav li a {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* ----------- */

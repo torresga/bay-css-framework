@@ -1,0 +1,132 @@
+/* Header */
+
+@import "../lib/bourbon/bourbon";
+@import "../lib/neat/neat";
+@import "../core/grid-settings";
+
+.l-header-container {
+    @include outer-container;
+}
+.l-header {
+}
+#feedback-fixed {
+    top: 60% !important;
+}
+.l-header-utility-nav {
+    text-align: center;
+    margin: 15px 0;
+    overflow: hidden;
+}
+.l-header-utility-nav--mobile {
+    display: block;
+    @include media($desktop) {
+        display: none;
+    }
+}
+.mobile-nav {
+    display: block;
+    visibility: visible;
+    @include media($desktop) {
+        display: none;
+        visibility: hidden;
+    }
+}
+.desk-nav {
+    display: none;
+    @include media($desktop) {
+        display: block;
+        @include span-columns(9);
+        margin: 45px 0;
+    }
+}
+.l-header-utility-nav--desktop {
+    display: none;
+    @include media($desktop) {
+        display: block;
+        float: right;
+    }
+}
+.l-header-utility-nav--desktop__link {
+    display: inline-block;
+    list-style: none;
+    zoom: 1;
+    *display: inline;
+    padding: 0 15px;
+    border-right: 1px solid $red;
+}
+.l-header-utility-nav--desktop__link__text {
+    text-decoration: none;
+}
+.l-header-utility-nav--desktop__link:last-child {
+    border-right: none;
+}
+.l-header--logo {
+    overflow: hidden;
+    @include media($desktop) {
+        @include span-columns(2.75);
+    }
+}
+.l-header--logo__image {
+    margin: 15px;
+    float: left;
+}
+
+.secondary-desk-nav {
+    display: none;
+    @include media($desktop) {
+        clear: both;
+        display: block;
+        background-color: $grey--dark;
+        border-top: 1px solid $grey--dark;
+        border-bottom: 1px solid $grey--dark;
+    }
+}
+
+.secondary-desk-nav__container {
+    @include outer-container;
+    margin: 0 auto; /* this gets rid of margin in base styles */
+}
+
+.secondary-desk-nav--peds {
+    @include media($desktop) {
+        background-color: $white;
+       
+    }
+}
+
+.secondary-desk-nav__inner {
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 72px;
+}
+
+.secondary-desk-nav__link {
+    @include media($desktop) {
+        color: $white;
+        text-decoration: none;
+    }
+}
+.secondary-desk-nav--peds__link {
+    @include media($desktop) {
+        color: $grey--dark;
+    }
+}
+
+/*
+  ZIP SEARCH
+*/
+/*.search input[type="text"],*/ /*.txtZip,*/ /*.nav-search input[type="text"] {border: 1px solid #666; font-size: 12px; padding: 3px 2px 2px 8px; line-height: 18px; height: 28px; width: 130px; color: #515151; } */
+
+/*.search input[type="submit"], .input_submit {border: none; height: 28px; width: 26px; background: #d5242f url(../cp-img/search_button.png) no-repeat 5px 5px; cursor: pointer; margin-left: -4px;}*/
+
+.search input[type="text"], /*.txtZip,*/ .nav-search input[type="text"], .field input[type="text"] { font-size: 12px; padding: 2px 2px 2px 8px; line-height: 10px; height: 24px; color: #515151; }
+
+/*.search input[type="submit"], .input_submit {border: none; height: 28px; width: 26px; background: url(../img/ico/nav-search-icon.png) no-repeat; cursor: pointer; margin-left: -4px;}*/
+
+.button_go, .input_submit {text-indent:-9999px;}
+* html .button_go, * html .input_submit{font-size:0;display:block;line-height:0}  /* ie6 */
+*+html .button_go, *+html .button_go{font-size:0;display:block;line-height:0}  /* ie7 */
+
+.header-zip {width: 122px;}
+
+/* -------------- */

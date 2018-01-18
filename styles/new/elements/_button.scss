@@ -1,0 +1,209 @@
+/*Buttons */
+@import "../core/variables";
+
+.c-button--default {
+  $default-hover-color: $red;
+
+  display: inline-block;
+  width: 225px;
+  padding: 7px 2px;
+  margin: 7.5px auto;
+  border-radius: 10px;
+  background-color: $red;
+  border: 2px solid $red;
+  text-align: center;
+  &:hover {
+    background-color: saturate($default-hover-color, 50%);
+  }
+}
+
+.c-button--default__link {
+  color: $white;
+  font-size: $charity;
+  text-decoration: none;
+  &:hover {
+    color: $white;
+  }
+}
+
+.c-button__submit-search {
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+}
+
+.c-button__submit-search__icon {
+	border: none;
+	height: 28px;
+	width: 26px;
+	background: url(/img/ico/nav-search-icon.png) no-repeat;
+	cursor: pointer;
+	margin-left: -4px;
+	text-indent: -9999px;
+	/*font-size: 0;*/
+	display: block;
+	line-height: 0;
+}
+
+.c-button__submit {
+	font-weight: bold;
+    font-size: 12px;
+	border: 0;
+	padding: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	height: 30px;
+	width: 110px;
+	color: $white;
+	text-transform: uppercase;
+	background-color: $red;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+	&:hover {
+		background-color: saturate($red, 50%);
+	}
+	&:focus {
+		box-shadow: 0 0 5px rgba(136, 136, 136, 1);
+	}
+}
+
+li.need-services {
+  float: right;
+  a {
+    font-weight: bold;
+    background: #fff;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+}
+
+.regatta-registration-button {
+    background-color: #207c46;
+    width: 250px;
+    color: #fff;
+    font-weight: bold;
+    line-height: 150%;
+    padding: 5px;
+    font-size: 24px;
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.regatta-registration-button,
+.regatta-registration-button:before,
+.regatta-registration-button:after,
+.regatta-registration-button .registration-text,
+.regatta-registration-button .registration-text:before,
+.regatta-registration-button .registration-text:after {
+  height: 120px;
+  width: 120px;
+  background: #d5242f top left no-repeat;
+}
+
+.regatta-registration-button:before,
+.regatta-registration-button:after,
+.regatta-registration-button .registration-text:before,
+.regatta-registration-button .registration-text:after {
+  content: "";
+  position: absolute;
+}
+
+.regatta-registration-button {
+  z-index: 2;
+  position: relative; /* Context */
+  top: 40px;
+  left: 13%;
+  -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+     -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+         transform: rotate(-45deg);
+}
+
+.regatta-registration-button:before {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+     -ms-transform: rotate(-30deg);
+      -o-transform: rotate(-30deg);
+         transform: rotate(-30deg);
+}
+
+.regatta-registration-button:after {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+     -ms-transform: rotate(-15deg);
+      -o-transform: rotate(-15deg);
+         transform: rotate(-15deg);
+}
+
+.regatta-registration-button .registration-text {
+  padding: 8px 0;
+  /*height: 120px;*/ /* height minus padding */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+         transform: rotate(45deg);
+  z-index: 1; /* important so the text shows up */
+}
+
+.regatta-registration-button .registration-text:before {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+     -ms-transform: rotate(60deg);
+      -o-transform: rotate(60deg);
+         transform: rotate(60deg);
+}
+
+.regatta-registration-button .registration-text:after {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotate(75deg);
+    -moz-transform: rotate(75deg);
+     -ms-transform: rotate(75deg);
+      -o-transform: rotate(75deg);
+         transform: rotate(75deg);
+}
+
+.regatta-registration-button .registration-text span {
+  position: absolute;
+  z-index: 100;
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  top: 45px;
+  left: -8px;
+}
+
+/*@media only screen and (min-width: 1500px) {
+    .regatta-registration-button {left: 21%;}
+}*/
+@media only screen and (min-width: 1600px) {
+    .regatta-registration-button {left: 18%; }
+}
+
+@media only screen and (min-width: 1700px) {
+    .regatta-registration-button {left: 23%;}
+}
+
+@media only screen and (min-width: 2050px) {
+    .regatta-registration-button {left: 28%;}
+}
+
+/* -------------- */

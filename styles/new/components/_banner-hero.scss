@@ -1,0 +1,1470 @@
+@import "../core/variables";
+
+/* Banners */
+
+
+/* All banners have the same structure:
+	- A banner container class
+	- Background image class
+	- Overlay (optional)
+	- Caption (optional)
+	- CTA, which consists of:
+	  - CTA title
+	  - CTA buttons
+	- Logo (optional)
+*/
+
+
+/*The styles are the following:
+
+ILWID 
+Korea
+Peds
+Old - covers Primary Care, ALS, Germany
+Regatta
+Hospice
+BMM
+India
+HHC
+Benefits
+Hawaii/BHC
+
+*/
+
+
+/*MIXINS*/
+
+/* Background containers */
+
+/* Background images */
+
+@mixin background__image($mobile, $desk) {
+	background-image: url(#{$mobile});
+	@include media($desktop) {
+			background-image: url(#{$desk});
+	}
+}
+
+/* Overlays  - Hero Banners */
+
+@mixin overlay-default($color) {
+	content: "";
+	position: absolute;
+	top: 0;
+  	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: $color;
+	width: 100%;
+	height: 99%;
+	/* IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	opacity: 0.5;
+	@include media($desktop) {
+		height: 100%;
+	}	
+}
+
+@mixin overlay-peds($color, $direction) {
+	@include media(min-width 984px) {
+		position: absolute;
+		background-color: $color;
+		#{$direction}: 0;
+		content: "";
+		width: 35%;
+		height: 100%;
+		position: absolute;
+		display: block;
+		opacity: 0.75;
+
+	}
+}
+
+/* CTA container */
+
+@mixin cta__inner($breakpoint) {
+	@include media($breakpoint) {
+		position: absolute;
+	}
+}
+@mixin cta__inner--left-center($breakpoint) {
+	@include media($breakpoint) {
+		top: 50%;
+		left: 0;
+		-webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+		transform: translate(0, -50%);
+	}
+}
+@mixin cta__inner--center-bottom($breakpoint) {
+	@include media($breakpoint) {
+		top: 65%;
+		left: 0;
+		right: 0;
+	}
+}
+@mixin cta__inner--right-center($breakpoint) {
+	@include media($breakpoint) {
+		top: 50%;
+		right: 0;
+		-webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+		transform: translate(0, -50%);
+	}
+}
+@mixin cta__inner--center-center($breakpoint) {
+	@include media($breakpoint) {
+		top: 50%;
+		right: 0;
+		left: 0;
+		-webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+		transform: translate(0, -50%);
+	}
+}
+
+/* Captions */
+
+@mixin banner__caption($color, $text-shadow, $text-align, $font-weight, $horizontal, $horizontal-value, $vertical, $vertical-value) {
+	display: none;
+	@include media($desktop) {
+		font-size: $beauty;
+		text-align: $text-align;
+		display: block;
+		width: 250px;
+		position: absolute;
+		color: $color;
+		text-shadow: $text-shadow;
+		#{$horizontal}: $horizontal-value;
+		#{$vertical}: $vertical-value;
+	}
+}
+
+/* CTA buttons */
+
+@mixin cta-button-container($text-align) {
+	text-align: $text-align;
+}
+
+@mixin cta-button($bg-color, $width, $border-color){
+	$default-hover-color: $red;
+	display: block;
+	/*default width is 225px;*/
+	width: $width;
+	padding: 7px 2px;
+	margin: 7.5px auto;
+	border-radius: 10px;
+	background-color: $bg-color;
+	border: 2px solid $border-color;
+	text-align: center;
+	&:hover {
+		background-color: saturate($default-hover-color, 50%);
+	}
+	@include media($desktop) {
+		display: inline-block;
+		margin: 7.5px;
+	}
+}
+
+@mixin cta-button__link($color, $hover) {
+	color: $color;
+	font-size: $charity;
+	text-decoration: none;
+	&:hover {
+		color: $hover;
+	}
+}
+
+/* Logos */
+
+@mixin banner-logo($horizontal, $horizontal-value, $vertical, $vertical-value) {
+	display: none;
+	@include media($desktop) {
+		display: block;
+		position: absolute;
+		#{$horizontal}: $horizontal-value;
+		#{$vertical}: $vertical-value;
+	}
+}
+
+/* Text */
+
+@mixin c-cta-text__title($font-weight, $font-size, $text-align, $color) {
+	/* Default Settings */
+	/* ---------------- */
+	/* font-weight: normal;
+	   font-size: 39px;
+	   text-align: center; */
+	font-weight: $font-weight;
+	font-size: $font-size;
+	text-align: $text-align;
+	color: $color;
+	line-height: 133%;
+}
+
+@mixin c-cta-text__tagline() {
+}
+
+/*END MIXINS*/
+
+
+/*I Love What I Do - Grey background with dark grey text */
+
+.c-banner--ilwid {
+	min-height: 400px;
+	margin-top: 400px;
+	display: block;
+	background-repeat: no-repeat;
+	position: relative;
+	@include media(min-width 687px) {
+		margin-top: 0;
+	}
+	@include media($desktop) {
+		min-height: 600px;
+	}
+}
+
+.c-banner__background--ilwid-index {
+	@include background__image($mobile: "../../img/banners/index-ilwid.png", $desk: "../../img/banners/index-ilwid.png");
+	background-size: cover;
+	background-position: 102% 50%;
+	@include media(min-width 687px) {
+		background-position: 93% 50%;
+	}
+	@include media(min-width 1550px) {
+		background-size: contain;
+		background-position: top center;
+	}
+}
+.c-banner__background--ilwid-index::before {
+	background-color: #ececec;
+	background: -webkit-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+	background: -moz-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Firefox (3.6 to 15) */
+	background: linear-gradient(to right, #ececec, #f2f2f3);
+	content: " ";
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+.c-banner__background--ilwid-community {
+	@include background__image($mobile: "../../img/banners/community-ilwid.png", $desk: "../../img/banners/community-ilwid.png");
+	background-size: cover;
+	background-position: 102% 50%;
+	@include media(min-width 1550px) {
+		background-size: contain;
+		background-position: top center;
+	}
+}
+.c-banner__background--ilwid-community::before {
+	background-color: #ececec;
+	background: -webkit-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+	background: -moz-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Firefox (3.6 to 15) */
+	background: linear-gradient(to right, #ececec, #f2f2f3);
+	content: " ";
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+.c-banner__background--ilwid-services {
+	@include background__image($mobile: "../../img/banners/services-ilwid.png", $desk: "../../img/banners/services-ilwid.png");
+	background-size: cover;
+    background-position: 93% 50%;
+    min-height: 400px;
+	@include media(min-width 687px) {
+    	background-size: 100%;
+    	background-position: bottom right;
+	}
+	@include media(min-width 1550px) {
+		background-size: contain;
+		background-position: bottom right;
+	}
+}
+.c-banner__background--ilwid-services::before {
+	background-color: #ececec;
+	background: -webkit-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+	background: -moz-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Firefox (3.6 to 15) */
+	background: linear-gradient(to right, #ececec, #f2f2f3);
+	content: " ";
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+
+.c-banner__background--ilwid-tbw {
+	@include background__image($mobile: "../../img/banners/tbw-ilwid.png", $desk: "../../img/banners/tbw-ilwid.png");
+    background-size: cover;    
+    min-height: 400px;
+    background-position: 100% 50%;
+    @include media(min-width 1550px) {
+    	background-size: 90%;
+        background-position: bottom right;
+    }
+}
+
+.c-banner__background--ilwid-tbw::before {
+	background-color: #ececec;
+	background: -webkit-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+	background: -moz-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Firefox (3.6 to 15) */
+	background: linear-gradient(to right, #ececec, #f2f2f3);
+	content: " ";
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+
+.c-cta--ilwid {
+	@include outer-container;
+	position: relative;
+	min-height: 400px;
+	@include media($desktop) {
+		min-height: 600px;
+	}
+}
+
+.c-cta__inner--ilwid {
+	position: absolute;
+	top: -50%;
+    right: 0;
+    left: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+	@include cta__inner--left-center($breakpoint: 687px);
+}
+
+.c-hero--ilwid {
+	margin-left: 3.75%;
+}
+
+.c-hero__text--ilwid {
+	font-family: 'frutiger-light', Arial, "Helvetica Neue", Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-weight: normal;
+	text-align: center;
+	font-size: 38px;
+    letter-spacing: 15px;
+    line-height: 133%;
+	@include media(min-width 687px) {
+		text-align: left;
+	}
+
+	@include media($desktop) {
+		font-size: 78px;
+	}
+}
+
+.c-hero__tagline--ilwid {
+	font-size: $patience;
+	letter-spacing: 4px;
+	font-family: 'frutiger-light', Arial, "Helvetica Neue", Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-weight: normal;
+	text-align: center;
+	@include media(min-width 687px) {
+		text-align: left;
+	}
+	@include media($desktop) {
+		font-size: 30px;
+	}
+}
+
+.c-cta-buttons--ilwid {
+	margin-left: 3.75%;
+}
+
+.c-cta-button--ilwid {
+	@include cta-button($bg-color: $red, $width: 225px, $border-color: none);
+	@include media(min-width 687px){
+		margin: 7.5px;
+	}
+}
+.c-cta-button__link--ilwid {
+	@include cta-button__link($color: $white, $hover: $white);
+}
+
+/* End ILWID-style banners */
+
+
+/* Korea style banners */
+
+.c-banner--korea {
+	display: block; 
+	min-height: 500px;
+    margin-top: 450px;
+    position: relative;
+    @include media(min-width 760px) {
+    	margin-top: 0px;
+    }
+}
+
+.c-banner--korea::before {
+	background-color: #ececec;
+	background: -webkit-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+	background: -moz-linear-gradient(to right, #ececec, #f2f2f3);
+	/* For Firefox (3.6 to 15) */
+	background: linear-gradient(to right, #ececec, #f2f2f3);
+	content: " ";
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+
+.c-banner__background--korea-index {
+	background-image: url(../../img/korea/Korea-Index.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	@include media(min-width 760px) {
+    	background-position: 140% 100%;
+    	margin-top: 0;
+    }
+	@include media($desktop) {
+		background-position-x: right;
+	}
+}
+
+.c-banner__background--korea-difference {
+	background-image: url(../../img/korea/Korea-Bayada-Difference.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	@include media(min-width 760px) {
+    	background-position: 140% 100%;
+    	margin-top: 0;
+    }
+	@include media($desktop) {
+		background-position-x: right;
+	}
+	
+}
+.c-banner__background--korea-pay {
+	background-image: url(../../img/korea/Korea-How-To-pay.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	@include media(min-width 760px) {
+    	background-position: 140% 100%;
+    	margin-top: 0;
+    }
+	@include media($desktop) {
+		background-position-x: right;
+	}
+}
+.c-banner__background--korea-referral {
+	background-image: url(../../img/korea/Korea-Referrals.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	@include media(min-width 760px) {
+    	background-position: 140% 100%;
+    	margin-top: 0;
+    }
+	@include media($desktop) {
+		background-position-x: right;
+	}
+}
+.c-banner__background--korea-services {
+	background-image: url(../../img/korea/Korea-Services.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	@include media(min-width 760px) {
+    	background-position: 140% 100%;
+    	margin-top: 0;
+    }
+	@include media($desktop) {
+		background-position-x: right;
+	}
+}
+.c-banner__background--korea-education {
+	background-image: url(../../img/banners/EDU-banner.png);
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	@include media(min-width 760px) {
+    	background-position: 100% 100%;
+    	margin-top: 0;
+    }
+	@include media($desktop) {
+		background-position-x: 90%;
+	}
+}
+
+.c-banner--korea__border-bottom {
+	@include media($desktop) {
+		border-bottom: 2px solid $grey--medium;
+	}
+}
+
+.c-banner--korea__border-top {
+	@include media($desktop) {
+		border-top: 2px solid $grey--medium;
+	}
+}
+
+.c-caption--korea {
+	@include banner__caption($color: $grey--dark, $text-align: right, $text-shadow: none, $font-weight: normal, 
+		$horizontal: right, $horizontal-value: 0, $vertical: top, $vertical-value: 0)
+}
+
+.c-cta--korea {
+	@include outer-container;
+	position: relative;
+	min-height: 500px;
+}
+
+.c-cta__inner--korea {
+	position: absolute;
+	top: -48%;
+    right: 0;
+    left: 0;
+    -webkit-transform: translate(0, -48%);
+    -ms-transform: translate(0, -48%);
+    transform: translate(0, -48%);
+	@include cta__inner--left-center($breakpoint: 760px);
+	@include media(min-width 760px) {
+		width: 50%;
+	}
+}
+
+.c-hero--korea {}
+
+.c-hero__text--korea {
+	@include c-cta-text__title($font-weight: normal, $font-size: $bravery, $text-align: center, $color: $grey--dark);
+}
+
+.c-hero__tagline--korea {
+	font-weight: normal;
+	margin-top: 17px;
+    font-size: $bravery;
+    text-align: center;
+    letter-spacing: 4px;
+    line-height: 90%;
+    padding: 5px;
+    color: $grey--dark;
+}
+
+.c-cta-buttons--korea {
+	@include cta-button-container($text-align: center);
+}
+.c-cta-button--korea {
+	@include cta-button($bg-color: $red, $width: 225px, $border-color: none);
+}
+.c-cta-button__link--korea {
+	@include cta-button__link($color: $white, $hover: $white);
+}
+
+
+/* End Korea-style banners */
+
+
+/* Old Style Banners - Bold white text and black overlay */
+
+.c-banner--old {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 0;
+    padding-top: 36%;
+    margin-bottom: 400px;
+    @include media($desktop) {
+    	min-height: 500px;
+		background: no-repeat 50% 50%;
+		background-size: cover;
+		padding-top: 0;
+		margin-bottom: 0;
+    }
+}
+
+/* Put other backgrounds here */
+/* Primary Care Banners */
+
+.c-banner__background--old-pc-resources {
+	@include background__image($mobile: "../../img/pc/PC-banner-resources-mobile.jpg",
+							  $desk: "../../img/pc/PC-banner-resources.jpg");
+}
+.c-banner__background--old-pc-services {
+	@include background__image($mobile: "../../img/pc/PC-banner-services-mobile.jpg",
+							  $desk: "../../img/pc/PC-banner-services.jpg");
+}
+.c-banner__background--old-pc-index {
+	@include background__image($mobile: "../../img/pc/PC-banner-index-mobile.jpg",
+							  $desk: "../../img/pc/PC-banner-index.jpg");
+}
+.c-banner__background--old-pc-referral {
+	@include background__image($mobile: "../../img/pc/PC-banner-referral-mobile.jpg",
+							  $desk: "../../img/pc/PC-banner-referral.jpg");
+}
+.c-banner__background--old-pc-team {
+	@include background__image($mobile: "../../img/pc/PC-banner-team-mobile.jpg",
+							  $desk: "../../img/pc/PC-banner-team.jpg");
+}
+
+/* ALS banners */
+
+.c-banner__background--old-als-index {
+	@include background__image($mobile: "../../img/als/banners/ALS-banner-index-mobile.jpg",
+							  $desk: "../../img/als/banners/ALS-banner-index.jpg");
+}
+.c-banner__background--old-als-awareness {
+	@include background__image($mobile: "../../img/als/banners/ALS-banner-awareness-mobile.jpg",
+							  $desk: "../../img/als/banners/ALS-banner-awareness.jpg");
+}
+.c-banner__background--old-als-events {
+	@include background__image($mobile: "../../img/als/banners/ALS-banner-events-mobile.jpg",
+							  $desk: "../../img/als/banners/ALS-banner-events.jpg");
+}
+.c-banner__background--old-als-resources {
+	@include background__image($mobile: "../../img/als/banners/ALS-banner-resources-mobile.jpg",
+							  $desk: "../../img/als/banners/ALS-banner-resources.jpg");
+}
+.c-banner__background--old-als-services {
+	@include background__image($mobile: "../../img/als/banners/ALS-banner-services-mobile.jpg",
+							  $desk: "../../img/als/banners/ALS-banner-services.jpg");
+}
+.c-banner__background--old-als-stories {
+	@include background__image($mobile: "../../img/als/banners/ALS-banner-stories-mobile.jpg",
+							  $desk: "../../img/als/banners/ALS-banner-stories.jpg");
+}
+
+.c-banner__logo--als--left-bottom {
+	@include banner-logo($horizontal: left, $horizontal-value: 0, $vertical: top, $vertical-value: 320px);
+}
+.c-banner__logo--als--right-bottom {
+	@include banner-logo($horizontal: right, $horizontal-value: 0, $vertical: top, $vertical-value: 320px);
+}
+
+/* Germany banners */
+
+.c-banner__background--old-germany-index {
+	@include background__image($mobile: "../../img/germany/banners/Germany-Philosophie-Banner-Mobile.jpg",
+							  $desk: "../../img/germany/banners/Germany-Philosophie-Banner.jpg");
+}
+.c-banner__background--old-germany-kontakt {
+	@include background__image($mobile: "../../img/germany/banners/Germany-Kontakt-Banner-Mobile.jpg",
+							  $desk: "../../img/germany/banners/Germany-Kontakt-Banner.jpg");
+}
+.c-banner__background--old-germany-philosophie {
+	@include background__image($mobile: "../../img/germany/banners/Germany-Philosophie-Banner-Mobile.jpg",
+							  $desk: "../../img/germany/banners/Germany-Index-Banner.jpg");
+}
+.c-banner__background--old-germany-stellenangebote {
+	@include background__image($mobile: "../../img/germany/banners/Germany-Stellenangebote-Banner-Mobile.jpg",
+							  $desk: "../../img/germany/banners/Germany-Stellenangebote-Banner.jpg");
+}
+.c-banner__background--old-germany-unsere-werte {
+	@include background__image($mobile: "../../img/germany/banners/Germany-Unsere-Werte-Banner-Mobile.jpg",
+							  $desk: "../../img/germany/banners/Germany-Unsere-Werte-Banner.jpg");
+}
+
+.c-banner__overlay--old:before {
+	@include overlay-default($color: $grey--dark);
+}
+
+.c-cta--old {
+	@include outer-container;
+	position: relative;
+	@include media($desktop) {
+		min-height: 500px;
+	}
+}
+.c-cta__inner--old-left {
+	@include cta__inner($breakpoint: $desktop);
+	@include cta__inner--left-center($breakpoint: $desktop);
+}
+.c-cta__inner--old-right {
+	@include cta__inner($breakpoint: $desktop);
+	@include cta__inner--right-center($breakpoint: $desktop);
+}
+.c-cta__inner--old-center {
+	@include cta__inner($breakpoint: $desktop);
+	@include cta__inner--center-center($breakpoint: $desktop);
+}
+.c-hero--old {
+	max-width: 550px;
+	margin: 0 auto;
+}
+.c-hero--old-de {
+	max-width: 650px;
+	margin: 0 auto;
+}
+.c-hero__text--old {
+	@include c-cta-text__title($font-weight: normal, $font-size: $bravery, $text-align: center, $color: $grey--dark);
+	@include media($desktop) {
+		font-weight: bold;
+		color: $white;
+	}
+}
+.c-hero__tagline--old {}
+.c-cta-buttons--old {
+	@include cta-button-container($text-align: center);
+}
+.c-cta-button--old {
+	@include cta-button($bg-color: $red, $width: 225px, $border-color: none);
+}
+.c-cta-button--old-de {
+	@include cta-button($bg-color: $red, $width: 300px, $border-color: none);
+}
+.c-cta-button__link--old {
+	@include cta-button__link($color: $white, $hover: $white);
+}
+
+/* End Old Style Banners*/
+
+
+/* Regatta style banners */
+
+.c-banner--regatta {
+    display: block;
+	margin: 0 auto;
+	position: relative;
+	background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 0;
+    padding-top: 36%;
+    @include media($desktop) {
+    	min-height: 500px;
+		background: no-repeat 50% 50%;
+		background-size: cover;
+		padding-top: 0;
+    }
+}
+
+/* Put other backgrounds here */
+.c-banner__background--regatta-index {
+	@include background__image($mobile: "../../img/regatta/banners/banner-regatta-index-mobile.jpg",
+							  $desk: "../../img/regatta/banners/banner-regatta-index.jpg");
+}
+.c-banner__background--regatta-about {
+	@include background__image($mobile: "../../img/regatta/banners/banner-regatta-about-mobile.jpg",
+							  $desk: "../../img/regatta/banners/banner-regatta-about.jpg");
+}
+.c-banner__background--regatta-rowers {
+	@include background__image($mobile: "../../img/regatta/banners/banner-regatta-rowers-mobile.jpg",
+							  $desk: "../../img/regatta/banners/banner-regatta-rowers.jpg");
+}
+
+.c-banner__logo--regatta--right-top {
+	@include banner-logo($horizontal: right, $horizontal-value: 10%, $vertical: top, $vertical-value: 0);
+}
+
+.c-banner__cutout--regatta {
+	display: none;
+
+	@include media($desktop) {
+		display: block; 
+		z-index: 1; 
+		position: absolute; 
+		top: 100px; 
+		left: 1%;
+	}
+
+	@include media(min-width 1500px) {
+		left: 4%;
+	}
+
+	@include media(min-width 1600px) {
+		left: 8%;
+	}
+
+	@include media(min-width 1700px) {
+		left: 15%;
+	}
+
+	@include media(min-width 2050px) {
+		left: 22%;
+	}
+}
+
+.c-caption--regatta {
+	@include banner__caption($color: $white, $text-shadow: $grey--dark 1px 1px 5px, 
+		$text-align: left, $font-weight: bold, $horizontal: left, $horizontal-value: 0, $vertical: top, $vertical-value: 0);
+}
+
+.c-cta--regatta {
+	@include outer-container;
+	position: relative;
+	min-height: 500px;
+}
+.c-cta__inner--regatta {
+	@include cta__inner($breakpoint: $desktop);
+	@include cta__inner--left-center($breakpoint: $desktop);
+}
+
+.c-hero--regatta {}
+
+/* End Regatta style banners */
+
+
+/* Peds style banners */
+
+.c-banner--peds {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 0;
+    padding-top: 36%;
+    margin-bottom: 400px;
+    @include media(min-width 984px) {
+    	min-height: 364px;
+		background: no-repeat 50% 50%;
+		background-size: cover;
+		padding-top: 0;
+		margin-bottom: 0;
+    }
+    @include media($desktop) {
+    	min-height: 500px;
+    }
+}
+
+/* Put other backgrounds here */
+
+.c-banner__background--peds-about {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-about-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-about-1400x500.jpg");
+}
+.c-banner__background--peds-career-hiring-faqs {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-career-hiring-faqs-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-career-hiring-faqs-1400x500.jpg");
+}
+.c-banner__background--peds-careers-in-caring {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-careers-in-caring-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-careers-in-caring-1400x500.jpg");
+}
+.c-banner__background--peds-community {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-community-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-community-1400x500.jpg");
+}
+.c-banner__background--peds-diagnosis-resources {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-diagnosis-specific-resources-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-diagnosis-specific-resources-1400x500.jpg");
+}
+.c-banner__background--peds-equipment {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-equipment-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-equipment-1400x500.jpg");
+}
+.c-banner__background--peds-family-resources {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-family-resources-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-family-resources-1400x500.jpg");
+}
+.c-banner__background--peds-home-care-tips {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-home-care-tips-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-home-care-tips-1400x500.jpg");
+}
+.c-banner__background--peds-index {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-index-mobile.png",
+							  $desk: "../../img/pediatrics/banners/peds-banner-index-1400x500.jpg");
+}
+.c-banner__background--peds-join-our-team {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-join-our-team-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-join-our-team-1400x500.jpg");
+}
+.c-banner__background--peds-message-from-mark-ann {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-message-from-mark-ann-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-message-from-mark-ann-1400x500.jpg");
+}
+.c-banner__background--peds-nursing {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-nursing-care-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-nursing-care-1400x500.jpg");
+}
+.c-banner__background--peds-community-stories {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-our-community-stories-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-our-community-stories-1400x500.jpg");
+}
+.c-banner__background--peds-personal-care {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-personal-care-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-personal-care-1400x500.jpg");
+}
+.c-banner__background--peds-questions {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-questions-to-ask-providers-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-questions-to-ask-providers-1400x500.jpg");
+}
+.c-banner__background--peds-respite {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-respite-care-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-respite-care-1400x500.jpg");
+}
+.c-banner__background--peds-school {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-school-care-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-school-care-1400x500.jpg");
+}
+.c-banner__background--peds-services {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-services-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-services-1400x500.jpg");
+}
+.c-banner__background--peds-support-groups {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-support-groups-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-support-groups-1400x500.jpg");
+}
+.c-banner__background--peds-transition-to-adult-care {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-transition-to-adult-care-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-transition-to-adult-care-1400x500.jpg");
+}
+.c-banner__background--peds-why-work {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-banner-why-work-peds-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-banner-why-work-peds-1400x500.jpg");
+}
+.c-banner__background--peds-web-contact {
+	@include background__image($mobile: "../../img/pediatrics/banners/mobile/peds-web-contact-banner-mobile.jpg",
+							  $desk: "../../img/pediatrics/banners/peds-web-contact-banner-1400x500.jpg");
+}
+
+.c-banner__overlay--peds-teal-left::before {
+	@include overlay-peds($color: $teal, $direction: left);
+}
+.c-banner__overlay--peds-teal-right::before {
+	@include overlay-peds($color: $teal, $direction: right);
+}
+.c-banner__overlay--peds-dkpurp-left::before {
+	@include overlay-peds($color: $purple--dark, $direction: left);
+}
+.c-banner__overlay--peds-dkpurp-right::before {
+	@include overlay-peds($color: $purple--dark, $direction: right);
+}
+.c-banner__overlay--peds-blue-left::before {
+	@include overlay-peds($color: $blue--royal, $direction: left);
+}
+.c-banner__overlay--peds-blue-right::before {
+	@include overlay-peds($color: $blue--royal, $direction: right);
+}
+.c-banner__overlay--peds-orange-left::before {
+	@include overlay-peds($color: $orange, $direction: left);
+}
+.c-banner__overlay--peds-orange-right::before {
+	@include overlay-peds($color: $orange, $direction: right);
+}
+.c-banner__overlay--peds-purp-left::before {
+	@include overlay-peds($color: $periwinkle, $direction: left);
+}
+.c-banner__overlay--peds-purp-right::before {
+	@include overlay-peds($color: $periwinkle, $direction: right);
+}
+
+.c-cta--peds {
+	@include outer-container;
+	min-height: 500px;
+}
+.c-cta__inner--peds-left {
+	@include media(min-width 984px) {
+		width: 35%;
+	}
+	@include cta__inner($breakpoint: 984px);
+	@include cta__inner--left-center($breakpoint: 984px);
+}
+.c-cta__inner--peds-right {
+	@include media(min-width 984px) {
+		width: 35%;
+	}
+	@include cta__inner($breakpoint: 984px);
+	@include cta__inner--right-center($breakpoint: 984px);
+}
+.c-hero--peds {
+	@include media(min-width 984px) {
+		max-width: 350px;
+		margin: 0 auto;
+	}
+}
+.c-hero__text--peds {
+	@include c-cta-text__title($font-weight: normal, $font-size: $bravery, $text-align: center, $color: $grey--dark);
+	@include media(min-width 984px) {
+		font-weight: bold;
+		color: $white;
+	}
+}
+.c-hero__tagline--peds {}
+.c-cta-buttons--peds {
+	@include cta-button-container($text-align: center);
+}
+.c-cta-button--peds {
+	@include cta-button($bg-color: $red, $width: 225px, $border-color: none);
+	@include media(min-width 984px) {
+		@include cta-button($bg-color: transparent, $width: 225px, $border-color: $white);
+		display: block !important;
+		margin: 15px auto !important;
+	}
+}
+.c-cta-button__link--peds {
+	@include cta-button__link($color: $white, $hover: $white);
+}
+
+/* Ends Peds banners */
+
+
+/* Hospice style banners */
+
+.c-banner--hospice {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	min-height: 500px;
+	background: no-repeat 50% 50%;
+	background-size: cover;
+}
+
+/* Put other backgrounds here */
+
+.c-banner__background--hospice-index {
+	@include background__image($mobile: "../../img/hospice/banners/mobile/banner-hospice-index-1020x489-d.jpg",
+							  $desk: "../../img/hospice/banners/banner-hospice-index-1400x600-d.jpg");
+}
+.c-banner__background--hospice-locations {
+	@include background__image($mobile: "../../img/hospice/banners/mobile/banner-hospice-locations-1020x364.jpg",
+							  $desk: "../../img/hospice/banners/banner-hospice-locations-1400x500.jpg");
+}
+.c-banner__background--hospice-common-myths {
+	@include background__image($mobile: "../../img/hospice/banners/mobile/banner-hospice-common-myths-1020x364.jpg",
+							  $desk: "../../img/hospice/banners/banner-hospice-common-myths-1400x500.jpg");
+}
+.c-banner__background--hospice-team {
+	@include background__image($mobile: "../../img/hospice/banners/mobile/banner-hospice-ourteam-1020x364.jpg",
+							  $desk: "../../img/hospice/banners/banner-hospice-ourteam-1400x500.jpg");
+}
+.c-banner__background--hospice-refer {
+	@include background__image($mobile: "../../img/hospice/banners/mobile/banner-hospice-referral-1020x364.jpg",
+							  $desk: "../../img/hospice/banners/banner-hospice-referral-1400x500-b.jpg");
+}
+.c-banner__background--hospice-service {
+	@include background__image($mobile: "../../img/hospice/banners/mobile/banner-hospice-services-1020x364.jpg",
+							  $desk: "../../img/hospice/banners/banner-hospice-services-1400x500.jpg");
+}
+.c-banner__background--hospice-careers {
+	@include background__image($mobile: "../../img/hospice/banners/mobile/banner-hospice-careers-1020x364.jpg",
+							  $desk: "../../img/hospice/banners/banner-hospice-careers-1400x500.jpg");
+}
+
+.c-cta--hospice {
+	@include outer-container;
+	position: relative;
+	min-height: 500px;
+}
+.c-cta__inner--hospice-left {
+	@include cta__inner($breakpoint: $desktop);
+	@include cta__inner--left-center($breakpoint: $desktop);
+}
+.c-cta__inner--hospice-right {
+	@include cta__inner($breakpoint: $desktop);
+	@include cta__inner--right-center($breakpoint: $desktop);
+}
+.c-hero--hospice {
+	max-width: 550px;
+}
+.c-hero__text--hospice {
+	@include c-cta-text__title($font-weight: bold, $font-size: $bravery, $text-align: center, $color: $white);
+}
+.c-hero__tagline--hospice {}
+.c-cta-buttons--hospice {
+	@include cta-button-container($text-align: center);
+}
+.c-cta-button--hospice {
+	@include cta-button($bg-color: $red, $width: 225px, $border-color: none);
+}
+.c-cta-button__link--hospice {
+	@include cta-button__link($color: $white, $hover: $white);
+}
+
+.c-caption--hospice {
+	@include banner__caption($color: $white, $text-shadow: $grey--dark 1px 1px 5px, 
+		$text-align: left, $font-weight: bold, $horizontal: left, $horizontal-value: 0, $vertical: top, $vertical-value: 0);
+}
+
+
+
+/* Ends Hospice style banners */
+
+
+/* BMM syle banners */
+
+.c-banner--bmm {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 0;
+    padding-top: 36%;
+    margin-bottom: 75px;
+    @include media($desktop) {
+    	min-height: 500px;
+		background: no-repeat 50% 50%;
+		background-size: cover;
+		padding-top: 0;
+		margin-bottom: 0;
+    }
+}
+
+/* Put other backgrounds here */
+.c-banner__background--bmm-index {
+	@include background__image($mobile: "../../img/bmm/banners/mobile/MM-Banner-Index-mobile.png",
+							  $desk: "../../img/bmm/banners/MM-Banner-Index.png");
+}
+.c-banner__background--bmm-about {
+	@include background__image($mobile: "../../img/bmm/banners/mobile/MM-Banner-About-mobile-2.png",
+							  $desk: "../../img/bmm/banners/MM-Banner-About-2.png");
+}
+.c-cta--bmm {
+	@include outer-container;
+	position: relative;
+	min-height: 500px;
+}
+.c-cta__inner--bmm {
+	@include cta__inner($breakpoint: $desktop);
+	@include cta__inner--center-center($breakpoint: $desktop);
+}
+.c-hero--bmm {
+	max-width: 550px;
+}
+.c-hero__text--bmm {}
+.c-hero__tagline--bmm {}
+.c-cta-buttons--bmm {
+	@include cta-button-container($text-align: center);
+}
+.c-cta-button--bmm {
+	@include cta-button($bg-color: $red, $width: 300px, $border-color: none);
+}
+.c-cta-button__link--bmm {
+	@include cta-button__link($color: $white, $hover: $white);
+}
+
+/* Ends BMM style banners */
+
+
+/* India style banners */
+
+.c-banner--india {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 0;
+    padding-top: 36%;
+    margin-bottom: 400px;
+    @include media($desktop) {
+    	min-height: 500px;
+		background: no-repeat 50% 50%;
+		background-size: cover;
+		padding-top: 0;
+		margin-bottom: 0;
+    }
+}
+
+/* Put other backgrounds here */
+
+.c-banner__background--india-index {
+	@include background__image($mobile: "../../img/india/banners/India-Index-Banner-Mobile.jpg",
+							  $desk: "../../img/india/banners/India-Index-Banner.jpg");
+}
+.c-banner__background--india-about {
+	@include background__image($mobile: "../../img/india/banners/India-About-Banner-Mobile.jpg",
+							  $desk: "../../img/india/banners/India-About-Banner.jpg");
+}
+.c-banner__background--india-contact {
+	@include background__image($mobile: "../../img/india/banners/India-Contact-Banner-Mobile.jpg",
+							  $desk: "../../img/india/banners/India-Contact-Banner.jpg");
+}
+.c-banner__background--india-NRI-care {
+	@include background__image($mobile: "../../img/india/banners/India-NRI-Care-Banner-Mobile.jpg",
+							  $desk: "../../img/india/banners/India-NRI-Care-Banner.jpg");
+}
+.c-banner__background--india-overview {
+	@include background__image($mobile: "../../img/india/banners/India-Overview-Banner-Mobile.jpg",
+							  $desk: "../../img/india/banners/India-Overview-Banner.jpg");
+}
+
+.c-banner__overlay--india:before {
+	@include overlay-default($color: $grey--dark);
+}
+
+.c-banner__logo--india--left-bottom {
+	@include banner-logo($horizontal: left, $horizontal-value: 0, $vertical: bottom, $vertical-value: 0);
+}
+.c-banner__logo--india--right-bottom {
+	@include banner-logo($horizontal: right, $horizontal-value: 0, $vertical: bottom, $vertical-value: 0);
+}
+
+.c-cta--india {
+	@include outer-container;
+	position: relative;
+	min-height: 500px;
+}
+.c-cta__inner--india-left {
+	@include cta__inner($breakpoint: $desktop);
+	@include cta__inner--left-center($breakpoint: $desktop);
+}
+.c-cta__inner--india-right {
+	@include cta__inner($breakpoint: $desktop);
+	@include cta__inner--right-center($breakpoint: $desktop);
+}
+.c-hero--india {
+	max-width: 550px;
+	margin: 0 auto;
+}
+.c-hero__text--india {
+	@include c-cta-text__title($font-weight: normal, $font-size: $bravery, $text-align: center, $color: $grey--dark);
+	@include media($desktop) {
+		font-weight: bold;
+		color: $white;
+	}
+}
+.c-hero__tagline--india {}
+.c-cta-buttons--india {
+	@include cta-button-container($text-align: center);
+}
+.c-cta-button--india {
+	@include cta-button($bg-color: $green, $width: 225px, $border-color: none);
+}
+.c-cta-button__link--india {
+	@include cta-button__link($color: $white, $hover: $white);
+}
+
+/* Ends India style banners */
+
+/* HHC style banners */
+
+.c-banner--hhc {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 0;
+    padding-top: 36%;
+    @include media($desktop) {
+    	min-height: 500px;
+		background: no-repeat 50% 50%;
+		background-size: cover;
+		padding-top: 0;
+		margin-bottom: 0;
+    }
+  }
+
+  .c-banner__background--hhc-common-conditions {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-common-conditions-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-common-conditions-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-common-qs {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-common-questions-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-common-questions-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-dementia {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-banner-dementia-alz-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-banner-dementia-alz-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-getting-started {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-banner-getting-started-with-personal-care-companionship-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-banner-getting-started-with-personal-care-companionship-services-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-hc101 {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-what-is-home-care-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-what-is-home-care-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-hc-for-me {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-is-home-care-right-for-me-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-is-home-care-right-for-me-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-hhc-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-hhc-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-htp {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-how-to-pay-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-how-to-pay-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-index {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-banner-index-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-banner-index-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-personal {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-banner-dementia-alz-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-banner-dementia-alz-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-private {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-nursing-care-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-nursing-care-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-rehab {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-banner-List-of-Rehab-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-banner-List-of-Rehab-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-services {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-our-services-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-our-services-1400x600.jpg");
+  }
+
+  .c-banner__background--hhc-spinal {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-banner-brain-spinal-cord-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-banner-brain-spinal-cord-1400x600.jpg");
+	}
+
+  .c-banner__background--hhc-why {
+  	@include background__image($mobile: "../../cp-img/banners/mobile/cross-practice-why-bayada-1020x437.jpg",
+							  $desk: "../../cp-img/banners/cross-practice-why-bayada-1400x600.jpg");
+  }
+
+  .c-cta--hhc {}
+
+  .c-cta__inner--hhc {}
+
+  .c-caption--hhc {
+	@include banner__caption($color: $white, $text-align: right, $text-shadow: $grey--dark, $font-weight: normal, 
+		$horizontal: right, $horizontal-value: 0, $vertical: top, $vertical-value: 0)
+}
+
+/* End HHC style banners */
+
+/* Benefits banners */
+
+.c-banner--benefits {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	min-height: 500px;
+	background: no-repeat 50% 50%;
+	background-size: cover;
+}
+
+.c-banner__background--benefits-main {
+	@include background__image($mobile: "../../benefits/images/banners/mobile/Benefits-banner-1020x437.jpg",
+							  $desk: "../../benefits/images/banners/mobile/Benefits-banner-1400x600.jpg");
+}
+
+/* Hawaii/BHC banners */
+
+
+.c-banner--bhc {
+	display: block;
+    margin: 0 auto;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 120% 100%;
+    padding-bottom: 50%;
+    @include media($desktop) {
+		display: block;
+		margin: 0 auto;
+		position: relative;
+		min-height: 500px;
+		background: no-repeat 50% 10%;
+		background-size: cover;
+		padding-bottom: 0;
+    }
+}
+
+.c-cta--bhc {
+		position: absolute;
+        bottom: 0;
+    	width: 100%;
+    	height: 40%;
+    	@include media(min-width 860px){
+    		background: rgba(255, 255, 255, 0.70);
+    	}
+    	@include media(min-width 1600px) {
+    		height: 30%;
+    	}
+}
+
+.c-banner__background--bhc-assistive-care {
+	@include background__image($mobile: "../../bhc/images/Hawaii-Assistive-Care-Mobile.jpg",
+							  $desk: "../../bhc/images/Hawaii-Assistive-Care-1400x600.jpg");
+}
+
+.c-banner__background--bhc-services {
+	@include background__image($mobile: "../../bhc/images/Hawaii-Services-Mobile.jpg",
+							  $desk: "../../bhc/images/Hawaii-Services-1400x600.jpg");
+}
+
+.c-banner__background--bhc-board {
+	@include background__image($mobile: "../../bhc/images/Hawaii-BOD-Mobile.jpg",
+							  $desk: "../../bhc/images/Hawaii-BOD-1400x600.jpg");
+}
+
+.c-banner__background--bhc-careers {
+	@include background__image($mobile: "../../bhc/images/Hawaii-Careers-Mobile.jpg",
+							  $desk: "../../bhc/images/Hawaii-Careers-1400x600.jpg");
+}
+
+.c-banner__background--bhc-compliance {
+	@include background__image($mobile: "../../bhc/images/Hawaii-Compliance-Mobile.jpg",
+							  $desk: "../../bhc/images/Hawaii-Compliance-1400x600.jpg");
+}
+
+.c-banner__background--bhc-contact {
+	@include background__image($mobile: "../../bhc/images/Hawaii-Contact-Mobile.jpg",
+							  $desk: "../../bhc/images/Hawaii-Contact-1400x600.jpg");
+}
+
+.c-banner__background--bhc-index {
+	@include background__image($mobile: "../../bhc/images/Hawaii-About-Mobile.jpg",
+							  $desk: "../../bhc/images/Hawaii-About-1400x600.jpg");
+}
+
+.c-banner__background--bhc-nursing-care {
+	@include background__image($mobile: "../../bhc/images/Hawaii-Nursing-Care-Mobile.jpg",
+							  $desk: "../../bhc/images/Hawaii-Nursing-Care-1400x600.jpg");
+}
+
+.c-cta__inner--bhc-center {
+	@include cta__inner($breakpoint: 0px);
+	top: 25%;
+    right: 0;
+    left: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -25%);
+}
+
+.c-hero--bhc {}
+
+.c-hero__text--bhc {
+	display: none;
+	@include media(min-width 860px) {
+		display: block;
+		@include c-cta-text__title($font-weight: bold, $font-size: $bravery, $text-align: center, $color: $red);
+	}
+}
+.c-hero__tagline--bhc {}
+
+.c-cta-buttons--bhc {
+	@include cta-button-container($text-align: center);
+}
+.c-cta-button--bhc {
+	@include cta-button($bg-color: $red, $width: 225px, $border-color: none);
+}
+.c-cta-button__link--bhc {
+	@include cta-button__link($color: $white, $hover: $white);
+}
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+@import "../lib/neat/neat-helpers";
+
+$visual-grid: true;
+$visual-grid-index: front;
+$visual-grid-color: purple;
+$visual-grid-opacity: 0.1;
+
+/*$grid-columns: 4;*/
+$grid-columns: 12;
+$gutter: 0.938em;
+$max-width: 1400px;
+$first-breakpoint-value: 750px;
+$second-breakpoint-value: 1025px;
+
+/*$mobile-max-breakpoint: new-breakpoint(min-width 0 max-width $first-breakpoint-value 4);*/
+$mobile-max-breakpoint: new-breakpoint(min-width 0 max-width $first-breakpoint-value);
+
+/*$tablet-max-breakpoint: new-breakpoint(min-width $first-breakpoint-value + 1 max-width $second-breakpoint-value 8);*/
+$tablet-max-breakpoint: new-breakpoint(min-width $first-breakpoint-value + 1 max-width $second-breakpoint-value);
+
+
+/*$tablet: new-breakpoint(min-width $first-breakpoint-value + 1 8);*/
+$tablet: new-breakpoint(min-width $first-breakpoint-value + 1);
+
+/*$desktop: new-breakpoint(min-width $second-breakpoint-value + 1 12);*/
+$desktop: new-breakpoint(min-width $second-breakpoint-value + 1);

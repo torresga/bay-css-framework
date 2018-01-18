@@ -1,0 +1,51 @@
+.how-aac-works {
+  li {list-style: none; display: inline-block; width: 90%; margin-left: 20px; min-height: 350px; vertical-align: top;}
+}
+
+@media all and (min-width: 470px) {
+  .how-aac-works {
+    li {
+      width: 40%;
+    }
+  }
+}
+
+@media all and (min-width: 600px) {
+  .how-aac-works {
+    li {
+      width: 25%;
+      margin: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 474px) {
+  .client-care-stories {
+    li {
+      width: 47%;
+    }
+  }
+}
+@media only screen and (min-width: 474px) and (max-width: 713px) {
+  .client-care-stories {
+    .story-pc {
+      img {
+        float: left;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 945px) and (max-width: 1120px) {
+  .client-care-stories {
+    li {
+      width: 31%;
+    }
+  }
+}
+@media only screen and (min-width: 1120px) {
+  .client-care-stories {
+    li {
+      width: 31%;
+    }
+  }
+}
