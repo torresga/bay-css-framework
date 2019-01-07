@@ -1,1 +1,9 @@
-# bay-styleguide
+# bay-css-framework
+
+This is a CSS Framework that resulted from a project from a previous client. She initially asked me to take a look at their styles file, a huge file filled with 6k lines of CSS, remove all the unused selectors, and make the remaining styles more re-useable.
+
+While I plan to write a more in-depth writeup on my process soon, here's a few things I learned from the project:
+* I did a LOT of research into the best way to refactor so-many one-off styles into a nice, reuseable library. After much reading about everything from naming conventions such as BEM, to organizational structures like SMACSS, Object Oriented CSS, etc. I finally decided on a component based system, similar to what Twitter Bootstrap is. It's the system that I was able to wrap my head around the most.
+* Once I found out about the [U.S. Web Design System: A design system for the federal government](https://designsystem.digital.gov/) I structured my files in a similar way. As a relatively junior developer, it helped immensely to see how a niche framework was designed and used in a daily setting, rather then in a sterile Examples page.
+* Designing your own framework is WAY harder when you don't have a style guide already in place. I took a lot of screenshots to document what paragraphs of text looked like in different places, what headers looked like in different places, what banners on each page looked like. It was only when I compared like elements that I was able to get a better picture of what components what I could create and how to make everything look cohesive and similar.
+* Look at Google Analytics and determine where your traffic is coming from, and on what devices, before you start, and continuously check! I was told that I had to support IE 9 - while that might have been true when I started in May 2016, that was not the case the closer I got to finishing.
